@@ -58,11 +58,23 @@ const getUser = async function () {
         console.log(ans);
         ans.data.forEach(element => {
             console.log(element.id);
+
+            const userDiv = document.createElement('div');
+            userDiv.classList.add('q2div')
+
             const h5 = document.createElement('h5');
-            h5.innerText = `FULL NAME: ${element.first_name} ${element.last_name} `
-            document.body.append(h5);
+            h5.innerText = `Full Name: ${element.first_name} ${element.last_name} \n Email: ${element.email} `
+            
+            const img = document.createElement('img');
+            img.classList.add('q2Img') 
+            img.src= element.avatar
+
+            userDiv.append(h5);
+            userDiv.append(img);
+            document.body.append(userDiv);
+
             console.log(element);
-            console.log(element.title);
+            
         });
     } catch (error) {
         console.log(error);
